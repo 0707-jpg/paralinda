@@ -220,7 +220,7 @@
         }
 
         .btn-secondary:hover {
-            background: rgba(256, 256, 256, 0.15);
+            background: rgba(255, 255, 255, 0.15);
             box-shadow: 0 8px 20px rgba(255, 255, 255, 0.1);
         }
 
@@ -287,11 +287,11 @@
         <div class="badge">✦ Un pedacito de cielo para ti ✦</div>
         <h1>Mi Amor, <span>Linda</span> ❤️</h1>
         
-        <!-- Galería de fotos dinámica -->
+        <!-- Galería de fotos dinámica con extensión corregida .jpeg -->
         <div class="gallery-container" onclick="nextSlide()">
-            <img class="gallery-slide active" src="foto1.jpg" alt="Linda 1">
-            <img class="gallery-slide" src="foto2.jpg" alt="Linda 2">
-            <img class="gallery-slide" src="foto3.jpg" alt="Linda 3">
+            <img class="gallery-slide active" src="foto1.jpeg" alt="Linda 1">
+            <img class="gallery-slide" src="foto2.jpeg" alt="Linda 2">
+            <img class="gallery-slide" src="foto3.jpeg" alt="Linda 3">
             <div class="gallery-caption">Toca la imagen para ver el siguiente recuerdo ✨</div>
         </div>
 
@@ -354,7 +354,6 @@
                 reasonIndex = (reasonIndex + 1) % reasons.length;
             }, 300);
 
-            // Efecto de explosión sutil de corazones al hacer clic
             createHeartExplosion(window.innerWidth / 2, window.innerHeight / 2);
         }
 
