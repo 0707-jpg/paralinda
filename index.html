@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Para Linda, Mi Universo ✨</title>
+    <title>Para Linda, Mi Amor y Mi Universo ✨</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Caveat:wght@600&family=Poppins:wght@300;400;600&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Plus+Jakarta+Sans:wght@300;400;600;700&display=swap');
 
         * {
             margin: 0;
@@ -14,40 +14,42 @@
         }
 
         body {
-            background: #090a0f;
+            background: #05060a;
             min-height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
             overflow-x: hidden;
             position: relative;
-            font-family: 'Poppins', sans-serif;
-            padding: 2rem 0;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            padding: 2.5rem 0;
+            color: #ffffff;
         }
 
+        /* Ambient Auroras */
         .aurora-1 {
             position: fixed;
-            width: 550px;
-            height: 550px;
-            background: radial-gradient(circle, rgba(236, 72, 153, 0.25) 0%, rgba(0, 0, 0, 0) 70%);
-            top: -10%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(236, 72, 153, 0.22) 0%, rgba(0, 0, 0, 0) 70%);
+            top: -15%;
             left: -10%;
             border-radius: 50%;
-            filter: blur(80px);
-            animation: floatAurora 12s infinite alternate ease-in-out;
+            filter: blur(90px);
+            animation: pulseAurora 10s infinite alternate ease-in-out;
             pointer-events: none;
         }
 
         .aurora-2 {
             position: fixed;
-            width: 650px;
-            height: 650px;
-            background: radial-gradient(circle, rgba(139, 92, 246, 0.2) 0%, rgba(0, 0, 0, 0) 70%);
-            bottom: -15%;
+            width: 700px;
+            height: 700px;
+            background: radial-gradient(circle, rgba(147, 51, 234, 0.18) 0%, rgba(0, 0, 0, 0) 70%);
+            bottom: -20%;
             right: -10%;
             border-radius: 50%;
-            filter: blur(90px);
-            animation: floatAurora 15s infinite alternate-reverse ease-in-out;
+            filter: blur(100px);
+            animation: pulseAurora 14s infinite alternate-reverse ease-in-out;
             pointer-events: none;
         }
 
@@ -62,68 +64,73 @@
         }
 
         .card {
-            background: rgba(18, 24, 38, 0.7);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.15);
-            padding: 2.5rem 2rem;
-            border-radius: 28px;
-            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6), 0 0 30px rgba(236, 72, 153, 0.2);
+            background: rgba(15, 20, 32, 0.75);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            padding: 3rem 2.2rem;
+            border-radius: 32px;
+            box-shadow: 0 30px 70px rgba(0, 0, 0, 0.7), 0 0 40px rgba(236, 72, 153, 0.25);
             text-align: center;
-            max-width: 540px;
+            max-width: 560px;
             width: 90%;
             z-index: 2;
-            animation: fadeIn 1.8s ease-in-out;
+            animation: fadeInUp 1.6s ease-out;
             margin: auto;
+            position: relative;
         }
 
         .badge {
-            display: inline-block;
-            background: rgba(236, 72, 153, 0.15);
-            border: 1px solid rgba(236, 72, 153, 0.3);
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(236, 72, 153, 0.12);
+            border: 1px solid rgba(236, 72, 153, 0.35);
             color: #f472b6;
-            padding: 6px 16px;
-            border-radius: 20px;
+            padding: 7px 18px;
+            border-radius: 30px;
             font-size: 0.85rem;
-            letter-spacing: 1.5px;
+            letter-spacing: 2px;
             text-transform: uppercase;
-            margin-bottom: 1rem;
-            font-weight: 600;
+            margin-bottom: 1.2rem;
+            font-weight: 700;
         }
 
         h1 {
-            color: #ffffff;
-            font-size: 2.2rem;
-            font-weight: 600;
-            margin-bottom: 0.8rem;
-            text-shadow: 0 0 15px rgba(244, 114, 182, 0.5);
+            font-size: 2.3rem;
+            font-weight: 700;
+            margin-bottom: 0.6rem;
+            letter-spacing: -0.5px;
+            line-height: 1.2;
         }
 
         h1 span {
             color: #f472b6;
             font-family: 'Caveat', cursive;
-            font-size: 3rem;
+            font-size: 3.5rem;
             display: inline-block;
+            text-shadow: 0 0 20px rgba(244, 114, 182, 0.6);
         }
 
         p.subtitle {
             color: #cbd5e1;
-            font-size: 1rem;
+            font-size: 1.05rem;
             line-height: 1.7;
-            margin-bottom: 1.8rem;
+            margin-bottom: 2rem;
             font-weight: 300;
         }
 
-        /* Galería de imágenes / Carrusel */
+        /* Galería estilo Polaroid Galáctica */
         .gallery-container {
             position: relative;
             width: 100%;
-            height: 260px;
-            border-radius: 20px;
+            height: 290px;
+            border-radius: 22px;
             overflow: hidden;
-            margin-bottom: 1.8rem;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4), 0 0 15px rgba(236, 72, 153, 0.2);
-            border: 1px solid rgba(255, 255, 255, 0.2);
+            margin-bottom: 2rem;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5), 0 0 20px rgba(236, 72, 153, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            cursor: pointer;
         }
 
         .gallery-slide {
@@ -134,8 +141,8 @@
             top: 0;
             left: 0;
             opacity: 0;
-            transition: opacity 1s ease-in-out, transform 1s ease-in-out;
-            transform: scale(1.05);
+            transition: opacity 1.2s ease-in-out, transform 1.2s ease-in-out;
+            transform: scale(1.08);
         }
 
         .gallery-slide.active {
@@ -147,16 +154,45 @@
             position: absolute;
             bottom: 0;
             width: 100%;
-            padding: 12px;
-            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+            padding: 15px 10px 10px;
+            background: linear-gradient(to top, rgba(5, 6, 10, 0.9), transparent);
             color: #f472b6;
             font-family: 'Caveat', cursive;
-            font-size: 1.5rem;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.8);
+            font-size: 1.6rem;
+            text-shadow: 0 2px 6px rgba(0, 0, 0, 0.9);
+        }
+
+        /* Sección Interactiva: Razones para Amarte */
+        .reasons-box {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 18px;
+            padding: 1.2rem;
+            margin-bottom: 1.8rem;
+            min-height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .reason-text {
+            color: #fbcfe8;
+            font-size: 1.05rem;
+            font-weight: 400;
+            font-style: italic;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .btn-group {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            align-items: center;
         }
 
         .btn {
-            background: linear-gradient(135deg, #ec4899 0%, #8b5cf6 100%);
+            background: linear-gradient(135deg, #ec4899 0%, #a855f7 100%);
             color: white;
             border: none;
             padding: 16px 36px;
@@ -165,45 +201,55 @@
             font-weight: 600;
             cursor: pointer;
             box-shadow: 0 10px 25px rgba(236, 72, 153, 0.4);
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             outline: none;
+            width: 100%;
+            max-width: 320px;
+        }
+
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: none;
+            color: #e2e8f0;
         }
 
         .btn:hover {
-            transform: translateY(-3px) scale(1.04);
+            transform: translateY(-3px) scale(1.03);
             box-shadow: 0 15px 35px rgba(236, 72, 153, 0.6);
         }
 
-        .btn:active {
-            transform: translateY(1px);
+        .btn-secondary:hover {
+            background: rgba(256, 256, 256, 0.15);
+            box-shadow: 0 8px 20px rgba(255, 255, 255, 0.1);
         }
 
         .letter-container {
             display: none;
             margin-top: 2rem;
-            padding-top: 1.8rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.12);
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.15);
             text-align: left;
-            animation: fadeInLetter 1.2s ease-in-out forwards;
+            animation: fadeInUp 1s ease-in-out forwards;
         }
 
         .letter-title {
             color: #f472b6;
             font-family: 'Caveat', cursive;
-            font-size: 2.2rem;
-            margin-bottom: 1rem;
+            font-size: 2.4rem;
+            margin-bottom: 1.2rem;
             text-align: center;
         }
 
         .letter-body {
             color: #e2e8f0;
-            font-size: 0.98rem;
-            line-height: 1.8;
+            font-size: 1.02rem;
+            line-height: 1.85;
             font-weight: 300;
         }
 
         .letter-body p {
-            margin-bottom: 1.2rem;
+            margin-bottom: 1.3rem;
         }
 
         .highlight {
@@ -214,24 +260,19 @@
         .signature {
             text-align: right;
             font-family: 'Caveat', cursive;
-            font-size: 2rem;
+            font-size: 2.2rem;
             color: #c084fc;
-            margin-top: 1.5rem;
+            margin-top: 1.8rem;
         }
 
-        @keyframes fadeIn {
+        @keyframes fadeInUp {
             from { opacity: 0; transform: translateY(30px); }
             to { opacity: 1; transform: translateY(0); }
         }
 
-        @keyframes fadeInLetter {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        @keyframes floatAurora {
+        @keyframes pulseAurora {
             from { transform: translate(0, 0) scale(1); }
-            to { transform: translate(40px, -30px) scale(1.1); }
+            to { transform: translate(30px, -20px) scale(1.1); }
         }
     </style>
 </head>
@@ -240,38 +281,47 @@
     <div class="aurora-1"></div>
     <div class="aurora-2"></div>
 
-    <canvas id="canvas"></canvas>
+    <canvas id="spaceCanvas"></canvas>
 
     <div class="card">
-        <div class="badge">Un rincón especial</div>
-        <h1>Para <span>Linda</span> ❤️</h1>
+        <div class="badge">✦ Un pedacito de cielo para ti ✦</div>
+        <h1>Mi Amor, <span>Linda</span> ❤️</h1>
         
         <!-- Galería de fotos dinámica -->
         <div class="gallery-container" onclick="nextSlide()">
-            <img class="gallery-slide active" src="foto1.jpg" alt="Universo">
-            <img class="gallery-slide" src="foto2.jpeg" alt="Luces nocturnas">
-            <img class="gallery-slide" src="foto3.jpeg" alt="Amor y Estrellas">
-            <div class="gallery-caption" id="slideCaption">Toca para cambiar la imagen ✨</div>
+            <img class="gallery-slide active" src="foto1.jpg" alt="Linda 1">
+            <img class="gallery-slide" src="foto2.jpg" alt="Linda 2">
+            <img class="gallery-slide" src="foto3.jpg" alt="Linda 3">
+            <div class="gallery-caption">Toca la imagen para ver el siguiente recuerdo ✨</div>
         </div>
 
-        <p class="subtitle">Creé este pequeño espacio en el universo digital especialmente para ti, para recordarte lo hermosa, valiosa e increíble que eres.</p>
-        
-        <button class="btn" id="openBtn" onclick="openLetter()">Abrir mi carta para ti ✨</button>
+        <p class="subtitle">Escribí cada línea de este código pensando en ti. Entre millones de estrellas en el universo, tu sonrisa es mi constelación favorita.</p>
 
+        <!-- Caja interactiva con razones para amar -->
+        <div class="reasons-box" id="reasonsBox">
+            <div class="reason-text" id="reasonText">Haz clic abajo para descubrir una razón por la que te amo... ✨</div>
+        </div>
+
+        <div class="btn-group">
+            <button class="btn btn-secondary" onclick="nextReason()">Razón para amarte ✨</button>
+            <button class="btn" id="openBtn" onclick="openLetter()">Leer mi carta para ti 💌</button>
+        </div>
+
+        <!-- Carta Romántica Expandida -->
         <div class="letter-container" id="letter">
-            <div class="letter-title">Mi querida Linda,</div>
+            <div class="letter-title">Linda, mi amor eterno:</div>
             <div class="letter-body">
-                <p>Hay personas que iluminan los días de forma natural, pero tú haces que cada momento tenga un brillo completamente diferente. Tu presencia tiene esa magia de convertir lo cotidiano en algo extraordinario.</p>
-                <p>Quería regalarte algo duradero, hecho a mano línea por línea de código, porque ninguna palabra o detalle común alcanzaría para expresar la profunda admiración que siento por ti.</p>
-                <p>Gracias por tu sonrisa, por la calidez de tu forma de ser y por regalarme la dicha de compartir historias a tu lado. <span class="highlight">Eres y siempre serás una de las razones más bonitas de mi vida.</span></p>
-                <p>Nunca olvides lo lejos que puedes llegar ni lo infinitamente especial que eres para mí.</p>
+                <p>Dicen que el universo está lleno de misterios y maravillas, pero nada en este mundo se compara con la magia que siento cuando estoy a tu lado.</p>
+                <p>Conocerte y compartir mi vida contigo ha sido el regalo más hermoso. Tu bondad, la dulzura de tu mirada y la risa que contagias hacen que cualquier día común se transforme en una experiencia inolvidable.</p>
+                <p>Te amo no solo por lo perfecta que eres, sino por la paz increíble que me transmites cuando me miras. <span class="highlight">Eres mi amor, mi compañera, mi lugar seguro y mi coincidencia más bonita.</span></p>
+                <p>Esta página vivirá aquí en internet para siempre, como un pequeño testimonio de lo infinito que es mi cariño por ti. Gracias por existir y por llenar mi universo de luz.</p>
             </div>
-            <div class="signature">Con todo mi cariño ✨</div>
+            <div class="signature">Por siempre tuyo, con todo mi amor ❤️</div>
         </div>
     </div>
 
     <script>
-        // Lógica de la Galería de Imágenes
+        // --- Galería de Fotos ---
         const slides = document.querySelectorAll('.gallery-slide');
         let currentSlide = 0;
 
@@ -281,21 +331,46 @@
             slides[currentSlide].classList.add('active');
         }
 
-        // Cambio automático de imagen cada 4 segundos
-        setInterval(nextSlide, 4000);
+        setInterval(nextSlide, 4500);
 
-        // Animación de Estrellas y Partículas en Canvas
-        const canvas = document.getElementById('canvas');
+        // --- Lista Interactiva: Razones para Amarte ---
+        const reasons = [
+            "Por la forma tan linda en la que sonríes e iluminas todo a tu alrededor.",
+            "Por la tranquilidad y felicidad que siento cuando hablo contigo.",
+            "Por tu ternura, tu bondad y la belleza de tu corazón.",
+            "Porque haces que los días sencillos se vuelvan momentos mágicos.",
+            "Porque eres mi persona favorita en todo el universo.",
+            "Por ser el amor de mi vida y mi inspiración diaria."
+        ];
+        let reasonIndex = 0;
+
+        function nextReason() {
+            const textElement = document.getElementById('reasonText');
+            textElement.style.opacity = 0;
+            
+            setTimeout(() => {
+                textElement.innerText = `"${reasons[reasonIndex]}"`;
+                textElement.style.opacity = 1;
+                reasonIndex = (reasonIndex + 1) % reasons.length;
+            }, 300);
+
+            // Efecto de explosión sutil de corazones al hacer clic
+            createHeartExplosion(window.innerWidth / 2, window.innerHeight / 2);
+        }
+
+        // --- Lluvia de Cometas y Estrellas en Canvas ---
+        const canvas = document.getElementById('spaceCanvas');
         const ctx = canvas.getContext('2d');
 
-        function setSize() {
+        function setCanvasSize() {
             canvas.width = window.innerWidth;
             canvas.height = window.innerHeight;
         }
-        setSize();
+        setCanvasSize();
 
         const stars = [];
-        const particles = [];
+        const comets = [];
+        const hearts = [];
 
         class Star {
             constructor() {
@@ -305,9 +380,9 @@
             reset() {
                 this.x = Math.random() * canvas.width;
                 this.y = Math.random() * canvas.height;
-                this.size = Math.random() * 1.8 + 0.3;
+                this.size = Math.random() * 1.6 + 0.4;
                 this.alpha = Math.random();
-                this.speed = Math.random() * 0.015 + 0.005;
+                this.speed = Math.random() * 0.02 + 0.005;
                 this.dir = Math.random() > 0.5 ? 1 : -1;
             }
 
@@ -329,83 +404,116 @@
             }
         }
 
-        class Particle {
-            constructor(x, y) {
-                this.x = x;
-                this.y = y;
-                this.size = Math.random() * 4 + 2;
-                this.speedX = (Math.random() - 0.5) * 8;
-                this.speedY = (Math.random() - 0.5) * 8;
-                this.color = `hsl(${Math.random() * 60 + 320}, 100%, 70%)`;
-                this.alpha = 1;
-                this.decay = Math.random() * 0.02 + 0.01;
+        class Comet {
+            constructor() {
+                this.reset();
+            }
+
+            reset() {
+                this.x = Math.random() * canvas.width * 1.5 - canvas.width * 0.2;
+                this.y = -50;
+                this.length = Math.random() * 80 + 40;
+                this.speed = Math.random() * 4 + 3;
+                this.size = Math.random() * 2 + 1;
+                this.alpha = Math.random() * 0.6 + 0.4;
             }
 
             draw() {
                 ctx.save();
                 ctx.globalAlpha = this.alpha;
-                ctx.fillStyle = this.color;
+                const gradient = ctx.createLinearGradient(this.x, this.y, this.x - this.length, this.y - this.length);
+                gradient.addColorStop(0, '#ffffff');
+                gradient.addColorStop(0.3, '#f472b6');
+                gradient.addColorStop(1, 'transparent');
+
+                ctx.strokeStyle = gradient;
+                ctx.lineWidth = this.size;
                 ctx.beginPath();
-                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-                ctx.fill();
+                ctx.moveTo(this.x, this.y);
+                ctx.lineTo(this.x - this.length, this.y - this.length);
+                ctx.stroke();
                 ctx.restore();
             }
 
             update() {
-                this.x += this.speedX;
-                this.y += this.speedY;
-                this.alpha -= this.decay;
-            }
-        }
-
-        function initStars() {
-            stars.length = 0;
-            for (let i = 0; i < 140; i++) {
-                stars.push(new Star());
-            }
-        }
-
-        function createExplosion(x, y) {
-            for (let i = 0; i < 60; i++) {
-                particles.push(new Particle(x, y));
-            }
-        }
-
-        function animate() {
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-            
-            stars.forEach(star => {
-                star.update();
-                star.draw();
-            });
-
-            for (let i = particles.length - 1; i >= 0; i--) {
-                particles[i].update();
-                particles[i].draw();
-                if (particles[i].alpha <= 0) {
-                    particles.splice(i, 1);
+                this.x += this.speed;
+                this.y += this.speed;
+                if (this.y > canvas.height + 100 || this.x > canvas.width + 100) {
+                    this.reset();
                 }
             }
-
-            requestAnimationFrame(animate);
         }
 
-        initStars();
-        animate();
+        class FloatingHeart {
+            constructor(x, y) {
+                this.x = x + (Math.random() - 0.5) * 60;
+                this.y = y;
+                this.size = Math.random() * 12 + 8;
+                this.speedY = Math.random() * 2 + 1;
+                this.speedX = (Math.random() - 0.5) * 2;
+                this.alpha = 1;
+            }
+
+            draw() {
+                ctx.save();
+                ctx.globalAlpha = this.alpha;
+                ctx.fillStyle = "#f472b6";
+                ctx.font = `${this.size}px sans-serif`;
+                ctx.fillText("❤️", this.x, this.y);
+                ctx.restore();
+            }
+
+            update() {
+                this.y -= this.speedY;
+                this.x += this.speedX;
+                this.alpha -= 0.02;
+            }
+        }
+
+        function initSpace() {
+            stars.length = 0;
+            comets.length = 0;
+            for (let i = 0; i < 150; i++) stars.push(new Star());
+            for (let i = 0; i < 4; i++) comets.push(new Comet());
+        }
+
+        function createHeartExplosion(x, y) {
+            for (let i = 0; i < 12; i++) {
+                hearts.push(new FloatingHeart(x, y));
+            }
+        }
+
+        function animateSpace() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            stars.forEach(s => { s.update(); s.draw(); });
+            comets.forEach(c => { c.update(); c.draw(); });
+
+            for (let i = hearts.length - 1; i >= 0; i--) {
+                hearts[i].update();
+                hearts[i].draw();
+                if (hearts[i].alpha <= 0) hearts.splice(i, 1);
+            }
+
+            requestAnimationFrame(animateSpace);
+        }
+
+        initSpace();
+        animateSpace();
 
         window.addEventListener('resize', () => {
-            setSize();
-            initStars();
+            setCanvasSize();
+            initSpace();
         });
 
         function openLetter() {
             const letter = document.getElementById('letter');
-            const btn = document.getElementById('openBtn');
-            
-            createExplosion(window.innerWidth / 2, window.innerHeight / 2);
+            const openBtn = document.getElementById('openBtn');
+
+            createHeartExplosion(window.innerWidth / 2, window.innerHeight / 2);
 
             letter.style.display = 'block';
-            btn.style.display = 'none';
+            openBtn.style.display = 'none';
         }
     </script>
 </body>
