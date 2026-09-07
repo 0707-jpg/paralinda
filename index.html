@@ -3,23 +3,50 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Para Linda ❤️</title>
+    <title>Para Linda, Mi Universo ✨</title>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Caveat:wght@600&family=Poppins:wght@300;400;600&display=swap');
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
         body {
-            background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 99%, #fecfef 100%);
+            background: #090a0f;
             height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
             overflow: hidden;
             position: relative;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        /* Luces de Aurora Borealis */
+        .aurora-1 {
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(236, 72, 153, 0.25) 0%, rgba(0, 0, 0, 0) 70%);
+            top: -10%;
+            left: -10%;
+            border-radius: 50%;
+            filter: blur(80px);
+            animation: floatAurora 12s infinite alternate ease-in-out;
+        }
+
+        .aurora-2 {
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(139, 92, 246, 0.2) 0%, rgba(0, 0, 0, 0) 70%);
+            bottom: -15%;
+            right: -10%;
+            border-radius: 50%;
+            filter: blur(90px);
+            animation: floatAurora 15s infinite alternate-reverse ease-in-out;
         }
 
         canvas {
@@ -33,167 +60,294 @@
         }
 
         .card {
-            background: rgba(255, 255, 255, 0.85);
-            backdrop-filter: blur(10px);
-            padding: 2.5rem;
-            border-radius: 20px;
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+            background: rgba(18, 24, 38, 0.65);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            padding: 3rem 2.5rem;
+            border-radius: 28px;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6), 0 0 30px rgba(236, 72, 153, 0.2);
             text-align: center;
-            max-width: 400px;
+            max-width: 520px;
             width: 90%;
+            max-height: 90vh;
+            overflow-y: auto;
             z-index: 2;
-            animation: fadeIn 1.5s ease-in-out;
+            animation: fadeIn 1.8s ease-in-out;
+            scrollbar-width: none;
+        }
+
+        .card::-webkit-scrollbar {
+            display: none;
+        }
+
+        .badge {
+            display: inline-block;
+            background: rgba(236, 72, 153, 0.15);
+            border: 1px solid rgba(236, 72, 153, 0.3);
+            color: #f472b6;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            margin-bottom: 1.2rem;
+            font-weight: 600;
         }
 
         h1 {
-            color: #d63384;
-            font-size: 2rem;
+            color: #ffffff;
+            font-size: 2.3rem;
+            font-weight: 600;
             margin-bottom: 1rem;
+            text-shadow: 0 0 15px rgba(244, 114, 182, 0.5);
         }
 
-        p {
-            color: #555;
-            font-size: 1.1rem;
-            line-height: 1.6;
-            margin-bottom: 1.5rem;
+        h1 span {
+            color: #f472b6;
+            font-family: 'Caveat', cursive;
+            font-size: 3rem;
+            display: inline-block;
+        }
+
+        p.subtitle {
+            color: #cbd5e1;
+            font-size: 1.05rem;
+            line-height: 1.7;
+            margin-bottom: 2rem;
+            font-weight: 300;
         }
 
         .btn {
-            background-color: #ff4b2b;
-            background: linear-gradient(to right, #ff416c, #ff4b2b);
+            background: linear-gradient(135deg, #ec4899 0%, #8b5cf6 100%);
             color: white;
             border: none;
-            padding: 12px 25px;
-            border-radius: 25px;
-            font-size: 1rem;
-            font-weight: bold;
+            padding: 16px 36px;
+            border-radius: 50px;
+            font-size: 1.05rem;
+            font-weight: 600;
             cursor: pointer;
-            box-shadow: 0 5px 15px rgba(255, 65, 108, 0.4);
-            transition: transform 0.2s, box-shadow 0.2s;
+            box-shadow: 0 10px 25px rgba(236, 72, 153, 0.4);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            outline: none;
         }
 
         .btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(255, 65, 108, 0.6);
+            transform: translateY(-3px) scale(1.04);
+            box-shadow: 0 15px 35px rgba(236, 72, 153, 0.6);
         }
 
-        .hidden-message {
+        .btn:active {
+            transform: translateY(1px);
+        }
+
+        .letter-container {
             display: none;
-            margin-top: 1.5rem;
-            padding-top: 1rem;
-            border-top: 1px solid rgba(0, 0, 0, 0.1);
-            color: #d63384;
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.12);
+            text-align: left;
+            animation: fadeInLetter 1.2s ease-in-out forwards;
+        }
+
+        .letter-title {
+            color: #f472b6;
+            font-family: 'Caveat', cursive;
+            font-size: 2.2rem;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        .letter-body {
+            color: #e2e8f0;
+            font-size: 1rem;
+            line-height: 1.8;
+            font-weight: 300;
+        }
+
+        .letter-body p {
+            margin-bottom: 1.2rem;
+        }
+
+        .highlight {
+            color: #f472b6;
             font-weight: 600;
-            animation: fadeIn 1s ease-in-out;
+        }
+
+        .signature {
+            text-align: right;
+            font-family: 'Caveat', cursive;
+            font-size: 2rem;
+            color: #c084fc;
+            margin-top: 1.5rem;
         }
 
         @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeInLetter {
             from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes floatAurora {
+            from { transform: translate(0, 0) scale(1); }
+            to { transform: translate(40px, -30px) scale(1.1); }
         }
     </style>
 </head>
 <body>
 
-    <canvas id="heartCanvas"></canvas>
+    <div class="aurora-1"></div>
+    <div class="aurora-2"></div>
+
+    <canvas id="canvas"></canvas>
 
     <div class="card">
-        <h1>¡Hola, Linda! ❤️</h1>
-        <p>Hice este pequeño rincón en internet especialmente para ti, para recordarte lo especial e importante que eres en mi vida.</p>
+        <div class="badge">Un rincón especial</div>
+        <h1>Para <span>Linda</span> ❤️</h1>
+        <p class="subtitle">Creé este pequeño espacio en el universo digital únicamente para recordarte lo hermosa, valiosa e increíble que eres.</p>
         
-        <button class="btn" onclick="revealMessage()">Haz clic aquí</button>
+        <button class="btn" id="openBtn" onclick="openLetter()">Abrir mi carta para ti ✨</button>
 
-        <div class="hidden-message" id="secretMessage">
-            ✨ Gracias por cada sonrisa y por compartir momentos tan lindos conmigo. ¡Te quiero muchísimo! ✨
+        <div class="letter-container" id="letter">
+            <div class="letter-title">Mi querida Linda,</div>
+            <div class="letter-body">
+                <p>Hay personas que iluminan los días de forma natural, pero tú haces que cada momento tenga un brillo completamente diferente. Tu presencia tiene esa magia de convertir lo cotidiano en algo extraordinario.</p>
+                <p>Quería regalarte algo duradero, hecho a mano línea por línea de código, porque ninguna palabra o detalle común alcanzaría para expresar la profunda admiración que siento por ti.</p>
+                <p>Gracias por tu sonrisa, por la calidez de tu forma de ser y por regalarme la dicha de compartir historias a tu lado. <span class="highlight">Eres y siempre serás una de las razones más bonitas de mi vida.</span></p>
+                <p>Nunca olvides lo lejos que puedes llegar ni lo infinitamente especial que eres para mí.</p>
+            </div>
+            <div class="signature">Con todo mi cariño ✨</div>
         </div>
     </div>
 
     <script>
-        // Animación de corazones flotantes en Canvas
-        const canvas = document.getElementById('heartCanvas');
+        // Animación de Estrellas y Fuegos Artificiales en Canvas
+        const canvas = document.getElementById('canvas');
         const ctx = canvas.getContext('2d');
 
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
+        function setSize() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+        setSize();
 
-        const hearts = [];
+        const stars = [];
+        const particles = [];
 
-        class Heart {
+        class Star {
             constructor() {
-                this.x = Math.random() * canvas.width;
-                this.y = canvas.height + Math.random() * 100;
-                this.size = Math.random() * 15 + 10;
-                this.speedY = Math.random() * 1.5 + 0.5;
-                this.opacity = Math.random() * 0.5 + 0.5;
+                this.reset();
             }
 
-            update() {
-                this.y -= this.speedY;
-                if (this.y < -this.size) {
-                    this.y = canvas.height + 10;
-                    this.x = Math.random() * canvas.width;
-                }
+            reset() {
+                this.x = Math.random() * canvas.width;
+                this.y = Math.random() * canvas.height;
+                this.size = Math.random() * 1.8 + 0.3;
+                this.alpha = Math.random();
+                this.speed = Math.random() * 0.015 + 0.005;
+                this.dir = Math.random() > 0.5 ? 1 : -1;
             }
 
             draw() {
                 ctx.save();
-                ctx.globalAlpha = this.opacity;
-                ctx.fillStyle = '#ff416c';
+                ctx.globalAlpha = Math.max(0, this.alpha);
+                ctx.fillStyle = "#ffffff";
                 ctx.beginPath();
-                const topCurveHeight = this.size * 0.3;
-                ctx.moveTo(this.x, this.y + topCurveHeight);
-                ctx.bezierCurveTo(
-                    this.x, this.y, 
-                    this.x - this.size / 2, this.y, 
-                    this.x - this.size / 2, this.y + topCurveHeight
-                );
-                ctx.bezierCurveTo(
-                    this.x - this.size / 2, this.y + (this.size + topCurveHeight) / 2, 
-                    this.x, this.y + this.size, 
-                    this.x, this.y + this.size
-                );
-                ctx.bezierCurveTo(
-                    this.x, this.y + this.size, 
-                    this.x + this.size / 2, this.y + (this.size + topCurveHeight) / 2, 
-                    this.x + this.size / 2, this.y + topCurveHeight
-                );
-                ctx.bezierCurveTo(
-                    this.x + this.size / 2, this.y, 
-                    this.x, this.y, 
-                    this.x, this.y + topCurveHeight
-                );
-                ctx.closePath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
                 ctx.fill();
                 ctx.restore();
             }
+
+            update() {
+                this.alpha += this.speed * this.dir;
+                if (this.alpha >= 1 || this.alpha <= 0.1) {
+                    this.dir *= -1;
+                }
+            }
         }
 
-        function init() {
-            for (let i = 0; i < 25; i++) {
-                hearts.push(new Heart());
+        class Particle {
+            constructor(x, y) {
+                this.x = x;
+                this.y = y;
+                this.size = Math.random() * 4 + 2;
+                this.speedX = (Math.random() - 0.5) * 8;
+                this.speedY = (Math.random() - 0.5) * 8;
+                this.color = `hsl(${Math.random() * 60 + 320}, 100%, 70%)`;
+                this.alpha = 1;
+                this.decay = Math.random() * 0.02 + 0.01;
+            }
+
+            draw() {
+                ctx.save();
+                ctx.globalAlpha = this.alpha;
+                ctx.fillStyle = this.color;
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fill();
+                ctx.restore();
+            }
+
+            update() {
+                this.x += this.speedX;
+                this.y += this.speedY;
+                this.alpha -= this.decay;
+            }
+        }
+
+        function initStars() {
+            stars.length = 0;
+            for (let i = 0; i < 140; i++) {
+                stars.push(new Star());
+            }
+        }
+
+        function createExplosion(x, y) {
+            for (let i = 0; i < 60; i++) {
+                particles.push(new Particle(x, y));
             }
         }
 
         function animate() {
             ctx.clearRect(0, 0, canvas.width, canvas.height);
-            hearts.forEach(heart => {
-                heart.update();
-                heart.draw();
+            
+            stars.forEach(star => {
+                star.update();
+                star.draw();
             });
+
+            for (let i = particles.length - 1; i >= 0; i--) {
+                particles[i].update();
+                particles[i].draw();
+                if (particles[i].alpha <= 0) {
+                    particles.splice(i, 1);
+                }
+            }
+
             requestAnimationFrame(animate);
         }
 
-        init();
+        initStars();
         animate();
 
         window.addEventListener('resize', () => {
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
+            setSize();
+            initStars();
         });
 
-        function revealMessage() {
-            const msg = document.getElementById('secretMessage');
-            msg.style.display = 'block';
+        function openLetter() {
+            const letter = document.getElementById('letter');
+            const btn = document.getElementById('openBtn');
+            
+            // Lanza explosión de partículas luminosas en el centro
+            createExplosion(window.innerWidth / 2, window.innerHeight / 2);
+
+            letter.style.display = 'block';
+            btn.style.display = 'none';
         }
     </script>
 </body>
