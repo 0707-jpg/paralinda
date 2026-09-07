@@ -15,42 +15,44 @@
 
         body {
             background: #090a0f;
-            height: 100vh;
+            min-height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
-            overflow: hidden;
+            overflow-x: hidden;
             position: relative;
             font-family: 'Poppins', sans-serif;
+            padding: 2rem 0;
         }
 
-        /* Luces de Aurora Borealis */
         .aurora-1 {
-            position: absolute;
-            width: 500px;
-            height: 500px;
+            position: fixed;
+            width: 550px;
+            height: 550px;
             background: radial-gradient(circle, rgba(236, 72, 153, 0.25) 0%, rgba(0, 0, 0, 0) 70%);
             top: -10%;
             left: -10%;
             border-radius: 50%;
             filter: blur(80px);
             animation: floatAurora 12s infinite alternate ease-in-out;
+            pointer-events: none;
         }
 
         .aurora-2 {
-            position: absolute;
-            width: 600px;
-            height: 600px;
+            position: fixed;
+            width: 650px;
+            height: 650px;
             background: radial-gradient(circle, rgba(139, 92, 246, 0.2) 0%, rgba(0, 0, 0, 0) 70%);
             bottom: -15%;
             right: -10%;
             border-radius: 50%;
             filter: blur(90px);
             animation: floatAurora 15s infinite alternate-reverse ease-in-out;
+            pointer-events: none;
         }
 
         canvas {
-            position: absolute;
+            position: fixed;
             top: 0;
             left: 0;
             width: 100%;
@@ -60,25 +62,19 @@
         }
 
         .card {
-            background: rgba(18, 24, 38, 0.65);
+            background: rgba(18, 24, 38, 0.7);
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
             border: 1px solid rgba(255, 255, 255, 0.15);
-            padding: 3rem 2.5rem;
+            padding: 2.5rem 2rem;
             border-radius: 28px;
             box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6), 0 0 30px rgba(236, 72, 153, 0.2);
             text-align: center;
-            max-width: 520px;
+            max-width: 540px;
             width: 90%;
-            max-height: 90vh;
-            overflow-y: auto;
             z-index: 2;
             animation: fadeIn 1.8s ease-in-out;
-            scrollbar-width: none;
-        }
-
-        .card::-webkit-scrollbar {
-            display: none;
+            margin: auto;
         }
 
         .badge {
@@ -91,15 +87,15 @@
             font-size: 0.85rem;
             letter-spacing: 1.5px;
             text-transform: uppercase;
-            margin-bottom: 1.2rem;
+            margin-bottom: 1rem;
             font-weight: 600;
         }
 
         h1 {
             color: #ffffff;
-            font-size: 2.3rem;
+            font-size: 2.2rem;
             font-weight: 600;
-            margin-bottom: 1rem;
+            margin-bottom: 0.8rem;
             text-shadow: 0 0 15px rgba(244, 114, 182, 0.5);
         }
 
@@ -112,10 +108,51 @@
 
         p.subtitle {
             color: #cbd5e1;
-            font-size: 1.05rem;
+            font-size: 1rem;
             line-height: 1.7;
-            margin-bottom: 2rem;
+            margin-bottom: 1.8rem;
             font-weight: 300;
+        }
+
+        /* Galería de imágenes / Carrusel */
+        .gallery-container {
+            position: relative;
+            width: 100%;
+            height: 260px;
+            border-radius: 20px;
+            overflow: hidden;
+            margin-bottom: 1.8rem;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4), 0 0 15px rgba(236, 72, 153, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .gallery-slide {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            position: absolute;
+            top: 0;
+            left: 0;
+            opacity: 0;
+            transition: opacity 1s ease-in-out, transform 1s ease-in-out;
+            transform: scale(1.05);
+        }
+
+        .gallery-slide.active {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        .gallery-caption {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            padding: 12px;
+            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+            color: #f472b6;
+            font-family: 'Caveat', cursive;
+            font-size: 1.5rem;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.8);
         }
 
         .btn {
@@ -144,7 +181,7 @@
         .letter-container {
             display: none;
             margin-top: 2rem;
-            padding-top: 2rem;
+            padding-top: 1.8rem;
             border-top: 1px solid rgba(255, 255, 255, 0.12);
             text-align: left;
             animation: fadeInLetter 1.2s ease-in-out forwards;
@@ -160,7 +197,7 @@
 
         .letter-body {
             color: #e2e8f0;
-            font-size: 1rem;
+            font-size: 0.98rem;
             line-height: 1.8;
             font-weight: 300;
         }
@@ -208,7 +245,16 @@
     <div class="card">
         <div class="badge">Un rincón especial</div>
         <h1>Para <span>Linda</span> ❤️</h1>
-        <p class="subtitle">Creé este pequeño espacio en el universo digital únicamente para recordarte lo hermosa, valiosa e increíble que eres.</p>
+        
+        <!-- Galería de fotos dinámica -->
+<div class="gallery-container" onclick="nextSlide()">
+    <img class="gallery-slide active" src="foto1.jpg" alt="Linda 1">
+    <img class="gallery-slide" src="foto2.jpg" alt="Linda 2">
+    <img class="gallery-slide" src="foto3.jpg" alt="Linda 3">
+    <div class="gallery-caption" id="slideCaption">Toca para cambiar la imagen ✨</div>
+</div>
+
+        <p class="subtitle">Creé este pequeño espacio en el universo digital especialmente para ti, para recordarte lo hermosa, valiosa e increíble que eres.</p>
         
         <button class="btn" id="openBtn" onclick="openLetter()">Abrir mi carta para ti ✨</button>
 
@@ -225,7 +271,20 @@
     </div>
 
     <script>
-        // Animación de Estrellas y Fuegos Artificiales en Canvas
+        // Lógica de la Galería de Imágenes
+        const slides = document.querySelectorAll('.gallery-slide');
+        let currentSlide = 0;
+
+        function nextSlide() {
+            slides[currentSlide].classList.remove('active');
+            currentSlide = (currentSlide + 1) % slides.length;
+            slides[currentSlide].classList.add('active');
+        }
+
+        // Cambio automático de imagen cada 4 segundos
+        setInterval(nextSlide, 4000);
+
+        // Animación de Estrellas y Partículas en Canvas
         const canvas = document.getElementById('canvas');
         const ctx = canvas.getContext('2d');
 
@@ -343,7 +402,6 @@
             const letter = document.getElementById('letter');
             const btn = document.getElementById('openBtn');
             
-            // Lanza explosión de partículas luminosas en el centro
             createExplosion(window.innerWidth / 2, window.innerHeight / 2);
 
             letter.style.display = 'block';
